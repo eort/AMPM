@@ -24,23 +24,21 @@ subject_container = {'parameterArray':[],'eventArray':[],'sessionArray':[]}
 for idx,session_file in enumerate(file_list):
     if session_file[0]=='.':
         continue
-    with open(os.path.join(file_location,session_file),'r') as f:
-        a = pickle.load(f)
+    a = io.readPickle(os.path.join(file_location,session_file))
         
     if (session_file[:4]!=current_subject and current_subject != None):
         subject_file_name = os.path.join('../data/pickles/',current_subject+'.pickle')
-        io.savePickle(subject_container,subject_file_name)
+        io.writePickle(subject_container,subject_file_name)
         print 'Finished processing subject {0}'.format(current_subject)
         print 'and start with processing subject {}'.format(session_file[:4])
         subject_container = {'parameterArray':[],'eventArray':[],'sessionArray':[]}
     
     for key in subject_container.keys():
         subject_container[key] += a[key]
-        f.close()
 
     if idx == len(file_list)-1:
         subject_file_name = os.path.join('../data/pickles/',session_file[:4]+'.pickle')
-        io.savePickle(subject_container,subject_file_name)
+        io.writePickle(subject_container,subject_file_name)
     
     current_subject = session_file[:4]
 
