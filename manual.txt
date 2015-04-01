@@ -1,0 +1,15 @@
+
+Pipeline proprocessing behavioral data
+
+In general, these scripts have to be run only once, in order to produce the wished form of the behavioral data.
+The goal was it, to make it rather modularized, that is every script handles a part of the preprocessing and produces a new
+file with the modified data, if necessary. Therefore, adjustments to the script can easily be done and run on the original files. 
+
+Pipeline:
+
+1) Collect each session pickle file for one subject, and concatenate it to one larger subject pickle file
+	mergeSessions.py
+
+2) Collects all important trial information from the parameterArray and the EventArray and stores them in a new dict, containing only this
+   information. Is also excluding trials that are not "perfect", that is contain exactly one key press, and only allowed keys.
+	selectPickle.py
