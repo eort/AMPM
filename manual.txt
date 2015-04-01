@@ -13,3 +13,6 @@ Pipeline:
 2) Collects all important trial information from the parameterArray and the EventArray and stores them in a new dict, containing only this
    information. Is also excluding trials that are not "perfect", that is contain exactly one key press, and only allowed keys.
 	selectPickle.py
+
+3) Based on responses, calculate the biases, state of adaptations, and so forth
+	computeEstimators.py
