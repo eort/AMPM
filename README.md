@@ -12,4 +12,6 @@ It is not really maintained anymore
 
 -events.py will contain the script that takes care of proper definitions of all version of events. 
 
+-most of the other files are dedicated to process the behavioral data
+
 
